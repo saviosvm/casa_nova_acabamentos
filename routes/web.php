@@ -21,8 +21,12 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-Route::resource('casa-nova', SiteController::class);
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('auth');
+
+
+
+Route::get('/casa-nova', [App\Http\Controllers\SiteController::class, 'index'])->name('site.index');
+
+Route::get('/casa-nova/dashboard', [App\Http\Controllers\SiteController::class, 'dashboard'])->name('site.dashboard')->middleware('auth');
 
 

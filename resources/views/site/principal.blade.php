@@ -1,5 +1,9 @@
+@extends('site.componente.template')
 
-   <!--esta adicionado atraves de um component, no template-->
+
+@section('content')
+
+    <!--esta adicionado atraves de um component, no template-->
     <section class="section about-me" data-section="section1">
 
         <div class="container">
@@ -13,11 +17,11 @@
                 <span>{{ $conteudo_inicio->conteudo }}</span>
             </div>
             @auth
-          
-            <div class="white-button">
-                <a href="{{ route('casa-nova.create') }}">Editar</a>
-            </div>
-            @endauth  
+
+                <div class="white-button">
+                    <a href="{{ route('site.dashboard') }}">Editar</a>
+                </div>
+            @endauth
     </section>
 
     <section class="section my-services" data-section="section2">
@@ -31,7 +35,7 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="service-item">
-                        <i ></i>
+                        <i></i>
                         <h4>Top Performance</h4>
                         <p>Donec sit amet tempor quam. Maecenas nec aliquam leo, sed tincidunt urna.</p>
                     </div>
@@ -212,4 +216,4 @@
         </div>
     </section>
 
-
+@endsection

@@ -7,19 +7,14 @@ use App\Models\ConteudoInicio;
 
 class SiteController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-   
     
+
     public function index()
     {
         
         $conteudo_inicio = ConteudoInicio::get()->first();
         
-        return view('site_admin.componente.template', ['conteudo_inicio' => $conteudo_inicio]);
+        return view('site.principal', ['conteudo_inicio' => $conteudo_inicio]);
     }
 
     /**
@@ -29,7 +24,7 @@ class SiteController extends Controller
      */
     public function create()
     {
-        return  view('site_admin._form.create');
+        return  view('site._form.create');
     }
 
     /**
@@ -41,7 +36,7 @@ class SiteController extends Controller
     public function store(Request $request)
     {
          ConteudoInicio::create($request->all());
-        return redirect()->route('site-admin.index');
+        return redirect()->route('site.index');
        
     }
 
@@ -88,5 +83,12 @@ class SiteController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+        public function dashboard()
+        {
+
+
+        return view('site.midia.dashboard');
     }
 }

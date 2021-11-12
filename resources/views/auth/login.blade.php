@@ -33,7 +33,7 @@
 		<div class="container-login100" style="background-image: url('assets/images/bg-01.jpg');">
           
 			<div class="wrap-login100 p-t-30 p-b-50">
-                <a href="{{route('casa-nova.index')}}">
+                <a href="/casa-nova">
 				<span class="login100-form-title p-b-41">
 					Casa Nova Acabamentos
 				</span>

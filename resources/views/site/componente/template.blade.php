@@ -90,9 +90,7 @@ https://www.tooplate.com/view/2116-blugoon
             </div>
         </div>
 
-        @component('site_admin.principal', ['conteudo_inicio' => $conteudo_inicio])
-            <!--principal ta indo aqui-->
-        @endcomponent
+        @yield('content')
 
     </div>
     <!-- Scripts -->
