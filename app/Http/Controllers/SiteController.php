@@ -22,9 +22,9 @@ class SiteController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function createIntro()
     {
-        return  view('site._form.create');
+        return  view('site.midia.intro.create');
     }
 
     /**

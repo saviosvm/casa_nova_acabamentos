@@ -5,10 +5,24 @@
 
   /*dashboard*/
 
-.dashboard-title-container{
+  .dashboard-title-container h1{
+    margin-bottom: 50px;
+    margin-top: 30px;
+    text-align: center;
+    color: white;
+    
+  }
+
+
+.dashboard-title-container h3{
     margin-bottom: 30px;
     margin-top: 30px;
+    color: white;
+    
   }
+
+
+
   
   .dashboard-events-container th{
     width: 25%;
@@ -18,6 +32,36 @@
   display: inline-block;
   }
 
+  .fundo{
+    background-color: #4AA0DD;
+  }
+
+
+
+
+    /* Event create page */
+    #event-create-container {
+      padding: 30px
+    }
+    #event-create-container h1 {
+      padding: 30px;
+      color:white;
+  
+      
+    }
+    
+    #event-create-container label {
+      font-weight: bold;
+    }
+    
+    #event-create-container input,
+    #event-create-container select,
+    #event-create-container textarea {
+      font-size: 12px;
+    }
+
+ 
+ 
 
   /* footer */
   footer {
