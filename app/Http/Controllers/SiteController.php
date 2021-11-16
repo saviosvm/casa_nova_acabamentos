@@ -7,13 +7,13 @@ use App\Models\ConteudoInicio;
 
 class SiteController extends Controller
 {
-    
+
 
     public function index()
     {
-        
+
         $conteudo_inicio = ConteudoInicio::get()->first();
-        
+
         return view('site.principal', ['conteudo_inicio' => $conteudo_inicio]);
     }
 
@@ -35,9 +35,36 @@ class SiteController extends Controller
      */
     public function store(Request $request)
     {
-         ConteudoInicio::create($request->all());
+
+
+/*
+        $intro = new ConteudoInicio();
+
+        $intro->title = $request->title;
+        $intro->cidade = $request->cidade;
+        $intro->private = $request->private;
+        $intro->description = $request->description;
+        $intro->items = $request->items; // precisa indicar no model que é um arrau, na view o nome é items[]
+        $intro->date = $request->date;
+
+
+        // Image Upload
+        if ($request->hasFile('image') && $request->file('image')->isValid()) {
+            $requestImage = $request->image;
+            $extension = $requestImage->extension();
+            $imageName = md5($requestImage->getClientOriginalName() . strtotime("now")) . "." . $extension;
+            $requestImage->move(public_path('img/events'), $imageName);
+
+            $event->image = $imageName;
+        }
+
+        $user = auth()->user();
+        $event->user_id = $user->id;
+
+
+        $event->save();
+*/
         return redirect()->route('site.index');
-       
     }
 
     /**
@@ -59,7 +86,7 @@ class SiteController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('site.midia.intro.edit');
     }
 
     /**
@@ -83,10 +110,11 @@ class SiteController extends Controller
     public function destroy($id)
     {
         //
+
     }
 
-        public function dashboard()
-        {
+    public function dashboard()
+    {
 
 
         return view('site.midia.dashboard');
