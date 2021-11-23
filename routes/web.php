@@ -29,6 +29,8 @@ Route::get('/casa-nova', [App\Http\Controllers\SiteController::class, 'index'])-
 
 Route::get('/casa-nova/dashboard', [App\Http\Controllers\SiteController::class, 'dashboard'])->name('site.dashboard')->middleware('auth');
 Route::get('/casa-nova/createIntro', [App\Http\Controllers\SiteController::class, 'createIntro'])->name('site.createIntro')->middleware('auth');
+Route::post('/casa-nova', [App\Http\Controllers\SiteController::class, 'store'])->name('site.storeIntro')->middleware('auth');
+Route::delete('/casa-nova/{id}', [App\Http\Controllers\SiteController::class, 'destroyIntro'])->name('site.destroyIntro')->middleware('auth');
 Route::get('/casa-nova/editar/{id}', [App\Http\Controllers\SiteController::class, 'edit'])->name('site.editIntro')->middleware('auth');
 
 

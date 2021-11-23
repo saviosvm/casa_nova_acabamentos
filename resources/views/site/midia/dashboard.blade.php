@@ -16,9 +16,9 @@
                 <thead>
                     <tr>
                         <th scope="col">#</th>
-                        <th scope="col">Imagem</th>
                         <th scope="col">Titulo</th>
                         <th scope="col">Descrição</th>
+                        <th scope="col">Data</th>
                         <th scope="col">
                             <a href="{{route('site.createIntro')}}" class="btn btn-primary">
                                 <ion-icon name="arrow-down-outline"></ion-icon> Adicionar
@@ -28,18 +28,19 @@
                 </thead>
 
                 <tbody>
+                    @foreach ($conteudo_inicio as $item)
                     <tr>
-                        <td >1</td>
-                        <td >1</td>
-                        <td >1</td>
-                        <td >1</td>
+                        <td>{{$item->id}}</td>
+                        <td >{{$item->titulo}}</td>
+                        <td >{{$item->descricao}}</td>
+                        <td >{{$item->created_at}}</td>
                         <td>
                             <a href="{{route('site.editIntro', ['id' => 1])}}" class="btn btn-info edit.btn">
                                 <ion-icon name="create-outline"></ion-icon> Editar
                             </a>
                         </td>
                         <td>
-                            <form action="" method="post">
+                            <form action="{{route('site.destroyIntro', ['id' => $item->id])}}" method="post">
                                 @csrf
                                 @method('DELETE')
 
@@ -49,6 +50,7 @@
                             </form>
                         </td>
                     </tr>
+                    @endforeach
                    
                 </tbody>
 

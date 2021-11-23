@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\ConteudoInicio;
+use App\Models\ConteudoIntro;
 
 class SiteController extends Controller
 {
@@ -12,7 +12,7 @@ class SiteController extends Controller
     public function index()
     {
 
-        $conteudo_inicio = ConteudoInicio::get()->first();
+        $conteudo_inicio = ConteudoIntro::get()->first();
 
         return view('site.principal', ['conteudo_inicio' => $conteudo_inicio]);
     }
@@ -37,34 +37,27 @@ class SiteController extends Controller
     {
 
 
-/*
-        $intro = new ConteudoInicio();
 
-        $intro->title = $request->title;
-        $intro->cidade = $request->cidade;
-        $intro->private = $request->private;
-        $intro->description = $request->description;
-        $intro->items = $request->items; // precisa indicar no model que é um arrau, na view o nome é items[]
-        $intro->date = $request->date;
+        $conteudo_inicio = new ConteudoIntro();
 
-
+        $conteudo_inicio->titulo = $request->titulo;
+        $conteudo_inicio->descricao = $request->descricao;
         // Image Upload
         if ($request->hasFile('image') && $request->file('image')->isValid()) {
             $requestImage = $request->image;
             $extension = $requestImage->extension();
             $imageName = md5($requestImage->getClientOriginalName() . strtotime("now")) . "." . $extension;
-            $requestImage->move(public_path('img/events'), $imageName);
+            $requestImage->move(public_path('img/introducao'), $imageName);
 
-            $event->image = $imageName;
+            $conteudo_inicio->image = $imageName;
         }
 
-        $user = auth()->user();
-        $event->user_id = $user->id;
+       
 
+        
+        $conteudo_inicio->save();
 
-        $event->save();
-*/
-        return redirect()->route('site.index');
+        return redirect()->route('site.dashboard');
     }
 
     /**
@@ -107,16 +100,22 @@ class SiteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroyIntro($id)
     {
-        //
+        $conteudo_inicio = ConteudoIntro::find($id);
+
+        $conteudo_inicio->delete();
+        return redirect()->route('site.dashboard');
 
     }
 
     public function dashboard()
     {
+        $conteudo_inicio = ConteudoIntro::all();
+      //  dd($conteudo_inicio);
+        
 
 
-        return view('site.midia.dashboard');
+        return view('site.midia.dashboard', ['conteudo_inicio' => $conteudo_inicio]);
     }
 }

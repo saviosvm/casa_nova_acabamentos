@@ -8,13 +8,13 @@
 
         <div class="container">
             <div class="top-header">
-                <img src="assets/images/aerobic-girls.jpg" alt="aerobic girls" />
+                <img class="img-fluid" src="img/introducao/{{$conteudo_inicio->image}}" alt="Intro" />
             </div>
             <div class="section-heading">
 
-                <h2>{{ $conteudo_inicio->titulo }}</h2>
+                <h2>{{ $conteudo_inicio->titulo ?? ''}}</h2>
                 <div class="line-dec"></div>
-                <span>{{ $conteudo_inicio->conteudo }}</span>
+                <span>{{ $conteudo_inicio->descricao ?? ''}}</span>
             </div>
             @auth
 
